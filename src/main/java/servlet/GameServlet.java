@@ -23,6 +23,7 @@ public class GameServlet extends HttpServlet {
         String playerName = req.getParameter("name");
         int playerAnswer = Integer.parseInt(req.getParameter("answer"));
         System.out.println(answer);
+        GameService gameService = new GameService();
         if(playerAnswer>answer){
             countPoint++;
             req.setAttribute("suggest","So vua doan lon hon dap an");
@@ -34,10 +35,10 @@ public class GameServlet extends HttpServlet {
         }else {
             countPoint++;
             System.out.println(countPoint);
-            req.setAttribute("suggest","Chuc mung ban da doan chinh xac!!!");
-            req.getRequestDispatcher("game.jsp").forward(req,resp);
-            GameService gameService = new GameService();
-            gameService.saveGame(playerName,countPoint);
+            req.setAttribute("suggest", "Chuc mung ban " + playerName + " da doan chinh xac voi " + countPoint + " lan thu!!!");
+            req.getRequestDispatcher("game.jsp").forward(req, resp);
+            answer = (int) Math.floor(Math.random() * (1000 - 1 + 1) + 1);
+            countPoint = 0;
         }
     }
 }

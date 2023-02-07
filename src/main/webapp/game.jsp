@@ -15,5 +15,14 @@
             <button type="submit" class="btn btn-primary">Tra Loi</button>
           </form>
           <h2> ${ suggest }</h2>
+          <tbody>
+            <c:forEach items="${players}" var="item">
+                <tr>
+                    <td>${item.getPlayerName()}</td>
+                    <td>${item.getPoint()}</td>
+
+                </tr>
+            </c:forEach>
+          </tbody>
 </body>
 </html>
