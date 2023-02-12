@@ -20,22 +20,30 @@ public class GameServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        GameService gameService = new GameService();
+        if(req.getParameter("delete-btn")!=null){
+            gameService.deleteOldData();
+            req.getRequestDispatcher("game.jsp").forward(req, resp);
+        }
         String playerName = req.getParameter("name");
         int playerAnswer = Integer.parseInt(req.getParameter("answer"));
         System.out.println(answer);
-        GameService gameService = new GameService();
         if(playerAnswer>answer){
             countPoint++;
             req.setAttribute("suggest","So vua doan lon hon dap an");
+            req.setAttribute("players",gameService.getTop5Players());
             req.getRequestDispatcher("game.jsp").forward(req,resp);
         } else if (playerAnswer<answer) {
             countPoint++;
             req.setAttribute("suggest","So vua doan nho hon dap an");
+            req.setAttribute("players",gameService.getTop5Players());
             req.getRequestDispatcher("game.jsp").forward(req,resp);
         }else {
             countPoint++;
             System.out.println(countPoint);
             req.setAttribute("suggest", "Chuc mung ban " + playerName + " da doan chinh xac voi " + countPoint + " lan thu!!!");
+            gameService.addPlayer(playerName,countPoint);
+            req.setAttribute("players",gameService.getTop5Players());
             req.getRequestDispatcher("game.jsp").forward(req, resp);
             answer = (int) Math.floor(Math.random() * (1000 - 1 + 1) + 1);
             countPoint = 0;

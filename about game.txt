@@ -1,0 +1,10 @@
+Dạ chào mentor :v
+Dạo này em hơi kẹt nên làm bt này hơi sơ sài
+em đã truyền đc tham số để xử lý logic về game
+kết nối database để lưu dữ liệu về người chơi, xuất được top 
+5 người đếm ít nhất và xóa dữ liệu cũ
+
+Em chưa áp dụng cookie hay session để lưu dữ liệu của ng chơi nên
+mỗi lượt đoán phải nhập lại tên vì em chậm deadline r mong a thông cảm :v
+
+Cảm ơn mentor đã đọc :v

@@ -13,16 +13,20 @@
               <input type="number" class="form-control" name="answer">
             </div>
             <button type="submit" class="btn btn-primary">Tra Loi</button>
-          </form>
-          <h2> ${ suggest }</h2>
-          <tbody>
-            <c:forEach items="${players}" var="item">
-                <tr>
-                    <td>${item.getPlayerName()}</td>
-                    <td>${item.getPoint()}</td>
+            <button type="submit" name = "delete-btn" class="btn btn-primary">Xoa Du Lieu</button>
 
-                </tr>
-            </c:forEach>
+          </form>
+
+          <h2> ${ suggest }</h2>
+
+          <b>Top 5 nguoi choi:</b>
+            <tbody>
+                <c:forEach items="${players}" var="item">
+                    <ul>
+                        <li>Ten Nguoi Choi: ${ item.getPlayerName() }</li>
+                        <li>So lan thu: ${ item.getPoint() }</li>
+                    </ul>
+                </c:forEach>
           </tbody>
 </body>
 </html>

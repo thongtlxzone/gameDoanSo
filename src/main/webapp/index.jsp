@@ -5,6 +5,6 @@
 <html>
 <body>
 <h2>Game Doan So</h2>
-<a href="game.jsp" class="btn btn-sm btn-success">Bat Dau Choi</a>
+<b><a href="game.jsp" class="btn btn-sm btn-success">Bat Dau Choi</a></b>
 </body>
 </html>
